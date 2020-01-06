@@ -1,6 +1,7 @@
 package com.jaiz.study;
 
 import com.jaiz.study.bean.RedisCommand;
+import com.jaiz.study.bean.User;
 import org.junit.Test;
 
 import java.util.*;
@@ -167,6 +168,10 @@ public class FunctionnalInterfaceTest {
         Supplier<Date> dateSupplier = Date::new;
 
         sout.accept(dateSupplier.get());
+//
+//        User u= User.build(11,"hello");
+//
+//        Function<User,Integer> ff=u::getId;
 
     }
 
