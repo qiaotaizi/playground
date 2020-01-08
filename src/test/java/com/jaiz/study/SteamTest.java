@@ -113,4 +113,55 @@ public class SteamTest {
         nameList.forEach(printer);
     }
 
+    @Test
+    public void flatMapTest(){
+        //flatMap用于嵌套列表转换为一个流
+        var userList = genTestList(20);
+        List<String> allEmailList=userList.stream().flatMap(u->u.getEmailList().stream()).collect(Collectors.toList());
+        allEmailList.forEach(printer);
+    }
+
+    @Test
+    public void matchTest(){
+        //测试allMatch,noneMatch,anyMatch
+        var userList = genTestList(10);
+        boolean allMatch=userList.stream().allMatch(u->u.getId()>30);
+        System.out.println(allMatch);
+        boolean anyMatch=userList.stream().anyMatch(user->user.getId()==3);
+        System.out.println(anyMatch);
+        boolean noneMatch=userList.stream().noneMatch(user->user.getId()>100);
+        System.out.println(noneMatch);
+        userList.forEach(printer);
+    }
+
+    @Test
+    public void findFirstTest(){
+        var userList = genTestList(10);
+        var user=userList.stream().findFirst();
+        user.ifPresent(printer);
+        System.out.println("===");
+        userList.forEach(printer);
+    }
+
+    @Test
+    public void findAnyTest(){
+        var userList = genTestList(5);
+        var stream=userList.stream();
+        var user=stream.findAny();
+        user.ifPresent(printer);
+        System.out.println("===");
+        userList.forEach(printer);
+    }
+
+    @Test
+    public void minMaxTest(){
+        var userList = genTestList(5);
+        var comparator=Comparator.comparing(User::getId);
+        var minUser=userList.stream().min(comparator);
+        minUser.ifPresent(printer);
+        var maxUser=userList.stream().max(comparator);
+        maxUser.ifPresent(printer);
+        System.out.println("====");
+        userList.forEach(printer);
+    }
 }

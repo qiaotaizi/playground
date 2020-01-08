@@ -3,6 +3,7 @@ package com.jaiz.study.bean;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -11,11 +12,13 @@ public class User {
 
     private Integer id;
     private String name;
+    private List<String> emailList;
 
     public static User build(Integer id,String name){
         User u=new User();
         u.id=id;
         u.name=name;
+        u.emailList=List.of(name+"@qq.com",name+"@sina.com",name+"@gmail.com");
         return u;
     }
 
