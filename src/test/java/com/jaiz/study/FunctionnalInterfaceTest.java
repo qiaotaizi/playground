@@ -157,11 +157,11 @@ public class FunctionnalInterfaceTest {
     public void methodQuoteTest() {
         Consumer<Object> sout = System.out::println;
         Consumer<Object> soutf = System.out::print;
-        List<Object> list = List.of("hello", " ", "world", "!");
+        List<Object> list = Arrays.asList("hello", " ", "world", "!");
         list.forEach(soutf);
 
         Function<String, Integer> integerValueOf = Integer::valueOf;
-        List<String> list1 = List.of("0", "1", "2");
+        List<String> list1 = Arrays.asList("0", "1", "2");
         List<Integer> list2 = list1.stream().map(integerValueOf).collect(Collectors.toList());
         list2.forEach(sout);
 
@@ -181,7 +181,7 @@ public class FunctionnalInterfaceTest {
      */
     @Test
     public void localVariableTest() {
-        var cmd = RedisCommand.build("set", "hello");
+        RedisCommand cmd = RedisCommand.build("set", "hello");
         Consumer<Object> printer=System.out::println;
         printer.accept(cmd);
     }
