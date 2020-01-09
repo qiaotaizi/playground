@@ -164,4 +164,23 @@ public class SteamTest {
         System.out.println("====");
         userList.forEach(printer);
     }
+
+    @Test
+    public void reduceTest(){
+        //对所有id求和
+        var userList = genTestList(5);
+        //第一种api,使用流中第一个元素作为首项，返回一个optional结果
+        userList.stream().map(User::getId).reduce(Integer::sum).ifPresent(printer);
+        //第二种api，使用给定的值作为首项，返回给定值类型的结果
+        var idSum=userList.stream().map(User::getId).reduce(100,Integer::sum);
+        System.out.println(idSum);
+        //第三种api，使用给定的值作为首项，使用一个BiFunction将各项进行归并，返回归并结果，这个结果将作为参与下次运算的项
+        //将每次归并结果使用BinaryOperator进行操作，并返回给定值类型的结果
+        var idSum2=userList.stream().reduce(100,(i,user)->{
+            System.out.println("i="+i+";userId="+user.getId());
+            return user.getId()+i;
+            },Integer::sum);
+        System.out.println(idSum2);
+
+    }
 }
