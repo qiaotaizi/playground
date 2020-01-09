@@ -1,5 +1,6 @@
 package com.jaiz.study;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  */
 public class App {
     public static void main(String[] args) {
-        List<String> strs = List.of("hello", "functional", "interface");
+        List<String> strs = Arrays.asList("hello", "functional", "interface");
         strs.forEach(System.out::println);
     }
 }

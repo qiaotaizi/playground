@@ -10,11 +10,11 @@ public class RandomString {
     private static final Random random=new Random(System.currentTimeMillis());
 
     static {
-        var arrayLengthUpperCase='Z'-'A'+1;
-        var arrayLengthLowerCase='z'-'a'+1;
+        int arrayLengthUpperCase='Z'-'A'+1;
+        int arrayLengthLowerCase='z'-'a'+1;
         charValueRange=new char[arrayLengthLowerCase+arrayLengthUpperCase];
         for (int i = 0; i < charValueRange.length; i++) {
-            var c=i<arrayLengthUpperCase?('a'+i):('A'+i-arrayLengthLowerCase);
+            int c=i<arrayLengthUpperCase?('a'+i):('A'+i-arrayLengthLowerCase);
             charValueRange[i]=(char)c;
         }
     }
@@ -22,7 +22,7 @@ public class RandomString {
     public String next(int length) {
         char[] chars=new char[length];
         for (int i=0;i<length;i++){
-            var pos=random.nextInt(charValueRange.length);
+            int pos=random.nextInt(charValueRange.length);
             chars[i]=charValueRange[pos];
         }
         return String.valueOf(chars);

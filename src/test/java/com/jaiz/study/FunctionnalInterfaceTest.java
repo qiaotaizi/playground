@@ -19,9 +19,9 @@ public class FunctionnalInterfaceTest {
     public void myFunctionTest() {
         MyFunction my = param -> System.out.println("content is: " + param);
         System.out.println("func name=" + my.getFunctionName());
-        System.out.println("func name2=" + my.getFunctionName2());
+        //System.out.println("func name2=" + my.getFunctionName2());
         my.printAString("hello world");
-        System.out.println(MyFunction.getClassName());
+        //System.out.println(MyFunction.getClassName());
     }
 
     @Test

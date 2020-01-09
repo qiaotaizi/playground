@@ -3,6 +3,7 @@ package com.jaiz.study.bean;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public class User {
         User u=new User();
         u.id=id;
         u.name=name;
-        u.emailList=List.of(name+"@qq.com",name+"@sina.com",name+"@gmail.com");
+        u.emailList= Arrays.asList(name+"@qq.com",name+"@sina.com",name+"@gmail.com");
         return u;
     }
 

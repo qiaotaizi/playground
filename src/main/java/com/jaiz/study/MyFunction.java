@@ -19,9 +19,9 @@ public interface MyFunction {
      *
      * @return
      */
-    static String getClassName() {
-        return _getClassName();
-    }
+//    static String getClassName() {
+//        return _getClassName();
+//    }
 
     /**
      * 函数式接口中可以编写多个default实例方法
@@ -34,9 +34,9 @@ public interface MyFunction {
         return "my";
     }
 
-    default String getFunctionName2() {
-        return _getFunctionName2();
-    }
+//    default String getFunctionName2() {
+//        return _getFunctionName2();
+//    }
 
     /**
      * 函数式接口中可以声明继承自Object类中的任何方法的重写
@@ -53,11 +53,11 @@ public interface MyFunction {
      * 这些方法可以在本接口的static或default方法中被调用
      *
      */
-    private String _getFunctionName2() {
-        return "my2";
-    }
+//    private String _getFunctionName2() {
+//        return "my2";
+//    }
 
-    private static String _getClassName() {
-        return "MyFunction";
-    }
+//    private static String _getClassName() {
+//        return "MyFunction";
+//    }
 }
